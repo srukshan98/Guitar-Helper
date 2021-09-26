@@ -1,0 +1,12 @@
+<div class="item-content row mx-0">
+    <div 
+        *ngFor="let item of displayItems | async" 
+        [class]="'item color-' + (item.Id !== null ? (item.Index % 2) : 2)" 
+        [class.viewed]="viewedItems[item.Index]" 
+        [ngStyle]="itemStyle"
+    >
+        <div *ngIf="item.Id === null" class="img"></div>
+        <div *ngIf="viewedItems[item.Index]" class="viewed-text centered-text"> Viewed </div>
+        <div *ngIf="item.Id !== null && !viewedItems[item.Index]" class="centered-text" (click)="onItemSelected(item)">{{item.Index}}</div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<app-dialog-container>
+    <app-dialog-header>
+        <div class="col-9">
+            <h1 mat-dialog-title>{{isEdit ? (isAdd ? 'Add' : 'Edit') : 'View'}} Team</h1>
+        </div>
+        <div class="col-3">
+            <div class="row">
+                <ng-container *ngIf="isEdit; else elseTemplate">
+                    <div class="offset-5 col-3">
+                        <button color="primary" mat-icon-button (click)="save()" cdkFocusInitial>
+                            <mat-icon>save</mat-icon>
+                        </button>
+                    </div>
+                </ng-container>
+                <ng-template #elseTemplate>
+                    <div class="offset-2 col-3" *ngIf="!isAdd">
+                        <button color="warn" mat-icon-button (click)="delete()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                    <div class="col-3" [class.offset-5]="isAdd">
+                        <button color="primary" mat-icon-button (click)="isEdit = true">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                    </div>
+                </ng-template>
+                
+                <div class="col-3">
+                    <button mat-icon-button [mat-dialog-close] cdkFocusInitial>
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </app-dialog-header>
+    <ng-container *ngIf="isEdit; else elseBodyTemplate">
+        <form [formGroup]="form">
+            <div class="row">
+                <div class="col-12">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input matInput formControlName="Name" required>
+                    </mat-form-field>
+                </div>
+            </div>
+        </form>
+    </ng-container>
+    <ng-template #elseBodyTemplate>
+        <mat-card class="mb-2">Name: <strong>{{data.team.Name}}</strong></mat-card>
+    </ng-template>
+</app-dialog-container>

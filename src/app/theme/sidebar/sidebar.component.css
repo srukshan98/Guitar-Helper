@@ -1,0 +1,11 @@
+.logo-image {    width: 35px;
+    display: block;
+    max-height: 30px;
+    margin-left: 13px;
+    margin-right: 15px;
+}
+.logo-image img {
+    width: 90px;
+    top: 16px;
+    position: absolute;
+}

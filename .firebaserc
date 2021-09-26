@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "dcegames-66a3f": {
+      "hosting": {
+        "DceGames": [
+          "dcegames-66a3f"
+        ]
+      }
+    }
+  }
+}

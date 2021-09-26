@@ -1,0 +1,22 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Add Team</mat-card-title>
+    </mat-card-header>
+    <mat-card-content [formGroup]="form">
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input formControlName="Name" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Players</mat-label>
+            <mat-select formControlName="Players" multiple>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions class="d-flex justify-content-end">
+        <button mat-raised-button (click)="onCancel()">Cancel</button>
+        <button mat-raised-button color="primary" (click)="onAdd()">Add </button>
+    </mat-card-actions>
+</mat-card>
